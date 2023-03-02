@@ -17,6 +17,10 @@ export default function Calculator(): React.ReactElement {
   }
 
   function handleClick(element: React.MouseEvent<HTMLButtonElement>): void {
+    if (result.length > 12) {
+      alert('Não é possível inserir mais digitos!');
+      return;
+    }
     setResult(result.concat(element.currentTarget.name))
   }
 
@@ -26,7 +30,7 @@ export default function Calculator(): React.ReactElement {
       const operationResult = eval(result);
 
       if (Number.isNaN(operationResult) || typeof operationResult !== 'number') {
-        alert('Conta inválida')
+        alert('Conta inválida!')
         return
       }
 

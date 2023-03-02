@@ -11,6 +11,7 @@
   background-color: var(--white-color);
   display: flex;
   width: 100%;
+  overflow: hidden;
   justify-content: flex-end;
   margin-right: 1em;
   margin-bottom: 0.3em;
@@ -20,6 +21,7 @@
 
 .display > span {
   padding-right: 0.5em;
+  font-size: 36px;
 }
 
 .result {
@@ -61,3 +63,10 @@ button{
 button:hover{
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .wrapper {
+    scale: 0.9;
+  }
+}
+

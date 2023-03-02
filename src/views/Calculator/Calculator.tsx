@@ -9,18 +9,18 @@ export default function Calculator(): React.ReactElement {
   }
 
   function percentage(): void {
-    setResult((parseInt(result) / 100).toString());
+    setResult((Number(result) / 100).toString());
   }
 
   function changeSign(): void {
-    setResult((-(parseInt(result))).toString());
+    setResult((-(Number(result))).toString());
   }
 
-  function handleClick (element: React.MouseEvent<HTMLButtonElement>): void {
+  function handleClick(element: React.MouseEvent<HTMLButtonElement>): void {
     setResult(result.concat(element.currentTarget.name))
   }
 
-  function calculate (): void {
+  function calculate(): void {
     try {
       // eslint-disable-next-line no-eval
       const operationResult = eval(result);
@@ -40,10 +40,15 @@ export default function Calculator(): React.ReactElement {
   return (
     <div className="calculator">
       <div className="wrapper">
-        <h1 className="result">{result}</h1>
-        <button onClick={clear}>AC</button>
-        <button onClick={changeSign}>+/-</button>
-        <button onClick={percentage}>%</button>
+        <div className="display">
+          {result !== ''
+            ? <span className="result">{result}</span>
+            : <span className="result">0</span>
+          }
+        </div>
+        <button className="special-button" onClick={clear}>AC</button>
+        <button className="special-button" onClick={changeSign}>+/-</button>
+        <button className="special-button" onClick={percentage}>%</button>
         <button name='/' className="light-blue" onClick={handleClick}>
           &divide;
         </button>

@@ -1,5 +1,6 @@
 @import '../src/views/Calculator/Calculator.css';
+@import '../src/utils/variables.css';
 
 body {
-  background-color: #444444;
+  background-color: var(--system-background);
 }

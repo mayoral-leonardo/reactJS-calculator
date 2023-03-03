@@ -1,6 +1,6 @@
-import React from 'react';
-import './index.css';
-import Calculator from './views/Calculator/Calculator';
+import React from 'react'
+import './index.css'
+import Calculator from './views/Calculator/Calculator'
 
 function App() {
   return (
@@ -10,4 +10,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

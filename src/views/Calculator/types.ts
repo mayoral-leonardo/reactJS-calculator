@@ -1,1 +1,0 @@
-export type _mathOperations = 'add' | 'substraction' | 'multiplication' | 'division'

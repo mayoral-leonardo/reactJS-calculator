@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Calculator.css";
 
 export default function Calculator(): React.ReactElement {
   const [result, setResult] = useState<string>('');

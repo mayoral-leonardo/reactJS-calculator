@@ -1,26 +1,40 @@
-import React, { useState } from "react";
-import Button from "./components/Button/Button";
-import Display from "./components/Display/Display";
+import React, { useState } from "react"
+import Button from "./components/Button/Button"
+import Display from "./components/Display/Display"
 
 export default function Calculator(): React.ReactElement {
-  const [result, setResult] = useState<string>('');
+  const [result, setResult] = useState<string>('')
 
   function clear(): void {
-    setResult('');
+    setResult('')
   }
 
   function percentage(): void {
-    setResult((Number(result) / 100).toString());
+    const operationResult = Number(result) / 100
+    const formattedToString: string = operationResult.toString()
+
+    if (formattedToString.indexOf('.')){
+      setResult(formattedToString.slice(0, formattedToString.indexOf('.') + 5))
+      return
+    }
+
+    if (formattedToString.length > 12) {
+      setResult(formattedToString.slice(0, 12))
+      return
+    }
+
+    setResult(formattedToString)
+    setResult(operationResult.toString())
   }
 
   function changeSign(): void {
-    setResult((-(Number(result))).toString());
+    setResult((-(Number(result))).toString())
   }
 
   function handleClick(element: React.MouseEvent<HTMLButtonElement>): void {
     if (result.length > 12) {
-      alert('Não é possível inserir mais digitos!');
-      return;
+      alert('Não é possível inserir mais digitos!')
+      return
     }
     setResult(result.concat(element.currentTarget.name))
   }
@@ -28,17 +42,28 @@ export default function Calculator(): React.ReactElement {
   function calculate(): void {
     try {
       // eslint-disable-next-line no-eval
-      const operationResult = eval(result);
+      const operationResult = eval(result)
+      const formattedToString: string = operationResult.toString()
 
       if (Number.isNaN(operationResult) || typeof operationResult !== 'number') {
         alert('Conta inválida!')
         return
       }
 
-      setResult(operationResult.toString().slice(0, 6))
+      if (formattedToString.indexOf('.')){
+        setResult(formattedToString.slice(0, formattedToString.indexOf('.') + 5))
+        return
+      }
+
+      if (formattedToString.length > 12) {
+        setResult(formattedToString.slice(0, 12))
+        return
+      }
+
+      setResult(formattedToString)
     } catch (error) {
-      alert('Conta inválida');
-      return;
+      alert('Conta inválida')
+      return
     }
   }
 
@@ -77,5 +102,5 @@ export default function Calculator(): React.ReactElement {
         <Button type='operation' value='' onClick={calculate}>=</Button>
       </div>
     </div>
-  );
+  )
 }

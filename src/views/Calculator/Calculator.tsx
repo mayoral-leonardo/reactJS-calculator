@@ -42,13 +42,17 @@ export default function Calculator(): React.ReactElement {
     }
   }
 
+  function removeLastCharacter () {
+    setResult(prev => prev.slice(0, -1))
+  }
+
   return (
     <div className="calculator">
       <div className="wrapper">
         <Display result={result}/>
 
         <Button type='special' value='AC' onClick={clear}>AC</Button>
-        <Button type='special' value='+/-' onClick={changeSign}>+/-</Button>
+        <Button type='special' value='' onClick={removeLastCharacter}>&larr;</Button>
         <Button type='special' value='%' onClick={percentage}>%</Button>
         <Button type='operation' value='/' onClick={handleClick}>&divide;</Button>
 
@@ -69,7 +73,7 @@ export default function Calculator(): React.ReactElement {
         
         <Button type='numeric' value='0' onClick={handleClick}>0</Button>
         <Button type='numeric' value='.' onClick={handleClick}>,</Button>
-        <Button type='numeric' value='.' onClick={handleClick} hidden>''</Button>
+        <Button type='special' value='+/-' onClick={changeSign}>+/-</Button>
         <Button type='operation' value='' onClick={calculate}>=</Button>
       </div>
     </div>

@@ -10,7 +10,7 @@ export default function Button({ children, hidden, onClick, type, value }: IButt
 
   return (
     <button
-      className={buttonClasses[type]}
+      className={`button ${buttonClasses[type]}`}
       name={value}
       onClick={onClick}
       style={{visibility: hidden ? 'hidden' : 'visible'}}

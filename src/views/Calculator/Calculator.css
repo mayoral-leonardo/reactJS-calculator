@@ -41,12 +41,12 @@
   background-color: var(--white-color);
 }
 
-.light-blue{
+.operation-button{
   background-color: var(--light-blue-color);
   color: var(--white-color);
 }
 
-.gray{
+.numeric-button{
   background-color: var(--gray-color);
   color: var(--white-color);
 }

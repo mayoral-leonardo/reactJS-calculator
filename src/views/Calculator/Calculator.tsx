@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./components/Button/Button";
 
 export default function Calculator(): React.ReactElement {
   const [result, setResult] = useState<string>('');
@@ -49,60 +50,26 @@ export default function Calculator(): React.ReactElement {
             : <span className="result">0</span>
           }
         </div>
-        <button className="special-button" onClick={clear}>AC</button>
-        <button className="special-button" onClick={changeSign}>+/-</button>
-        <button className="special-button" onClick={percentage}>%</button>
-        <button name='/' className="light-blue" onClick={handleClick}>
-          &divide;
-        </button>
-        <button name='7' className="gray" onClick={handleClick}>
-          7
-        </button>
-        <button name='8' className="gray" onClick={handleClick}>
-          8
-        </button>
-        <button name='9' className="gray" onClick={handleClick}>
-          9
-        </button>
-        <button name='*' className="light-blue" onClick={handleClick}>
-          &times;
-        </button>
-        <button name='4' className="gray" onClick={handleClick}>
-          4
-        </button>
-        <button name='5' className="gray" onClick={handleClick}>
-          5
-        </button>
-        <button name='6' className="gray" onClick={handleClick}>
-          6
-        </button>
-        <button name='-' className="light-blue" onClick={handleClick}>
-          &ndash;
-        </button>
-        <button name='1' className="gray" onClick={handleClick}>
-          1
-        </button>
-        <button name='2' className="gray" onClick={handleClick}>
-          2
-        </button>
-        <button name='3' className="gray" onClick={handleClick}>
-          3
-        </button>
-        <button name='+' className="light-blue" onClick={handleClick}>
-          +
-        </button>
-        <button name='0' className="gray" onClick={handleClick}>
-          0
-        </button>
-        <button name='.' className="gray" onClick={handleClick}>
-          ,
-        </button>
-        <button name='' className="gray" style={{ visibility: "hidden" }}>
-          ''
-        </button>
-        <button name='' className="light-blue" onClick={calculate}>
-          =
-        </button>
+        <Button type='special' value='AC' onClick={clear}>AC</Button>
+        <Button type='special' value='+/-' onClick={changeSign}>+/-</Button>
+        <Button type='special' value='%' onClick={percentage}>%</Button>
+        <Button type='operation' value='/' onClick={handleClick}>&divide;</Button>
+        <Button type='numeric' value='7' onClick={handleClick}>7</Button>
+        <Button type='numeric' value='8' onClick={handleClick}>8</Button>
+        <Button type='numeric' value='9' onClick={handleClick}>9</Button>
+        <Button type='operation' value='*' onClick={handleClick}>&times;</Button>
+        <Button type='numeric' value='4' onClick={handleClick}>4</Button>
+        <Button type='numeric' value='5' onClick={handleClick}>5</Button>
+        <Button type='numeric' value='6' onClick={handleClick}>6</Button>
+        <Button type='operation' value='-' onClick={handleClick}>&ndash;</Button>
+        <Button type='numeric' value='1' onClick={handleClick}>1</Button>
+        <Button type='numeric' value='2' onClick={handleClick}>2</Button>
+        <Button type='numeric' value='3' onClick={handleClick}>3</Button>
+        <Button type='operation' value='+' onClick={handleClick}>+</Button>
+        <Button type='numeric' value='0' onClick={handleClick}>0</Button>
+        <Button type='numeric' value='.' onClick={handleClick}>,</Button>
+        <Button type='numeric' value='.' onClick={handleClick} hidden>''</Button>
+        <Button type='operation' value='' onClick={calculate}>=</Button>
       </div>
     </div>
   );

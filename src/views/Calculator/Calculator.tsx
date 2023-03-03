@@ -13,7 +13,7 @@ export default function Calculator(): React.ReactElement {
     const operationResult = Number(result) / 100
     const formattedToString: string = operationResult.toString()
 
-    if (formattedToString.indexOf('.')){
+    if (formattedToString.indexOf('.') > 0){
       setResult(formattedToString.slice(0, formattedToString.indexOf('.') + 5))
       return
     }
@@ -49,8 +49,8 @@ export default function Calculator(): React.ReactElement {
         alert('Conta inválida!')
         return
       }
-
-      if (formattedToString.indexOf('.')){
+      
+      if (formattedToString.indexOf('.') > 0){
         setResult(formattedToString.slice(0, formattedToString.indexOf('.') + 5))
         return
       }
@@ -59,6 +59,7 @@ export default function Calculator(): React.ReactElement {
         setResult(formattedToString.slice(0, 12))
         return
       }
+
 
       setResult(formattedToString)
     } catch (error) {

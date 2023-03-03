@@ -31,8 +31,6 @@
 .wrapper{
   width: 350px;
   background-color: var(--calculator-background);
-  display: block;
-  align-items: center;
   border-radius: 1em;
   padding: 1rem;
 }
